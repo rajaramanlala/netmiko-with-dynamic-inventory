@@ -11,3 +11,8 @@ all:
           device_type_netmiko: juniper_junos
           device_type: srx
           device_role: edge
+       - hostname: ld5-srx-fw-1
+          host: 10.2.2.2.
+          device_type_netmiko: juniper_junos
+          device_type: srx
+          device_role: edge
