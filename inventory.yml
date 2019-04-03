@@ -1,0 +1,13 @@
+---
+all:
+  vars:
+    username: admin
+    password: admin
+  sites:
+    - name: am3
+      hosts:
+        - hostname: am3-srx-fw-1
+          host: 10.1.1.1
+          device_type_netmiko: juniper_junos
+          device_type: srx
+          device_role: edge
