@@ -25,25 +25,25 @@ def collect_outputs(devices, commands):
         hostname = device.pop("hostname")
        #print(hostname)
         connection = netmiko.ConnectHandler(**device)
-        device_result = ["{0} {1} {0}".format("-" * 10, hostname)]
+        output = ["{0} {1} {0}".format("-" * 10, hostname)]
 
         for command in commands:
            # print(command)
             command_result = connection.send_command(command, delay_factor=10)
             #print(command_result)
-            device_result.append("{0}".format(command))
-            device_result.append(command_result)
+            output.append("{0}".format(command))
+            output.append(command_result)
 
-        device_result_string = "\n".join(device_result)
+        output_result = "\n".join(output)
         connection.disconnect()
-        yield device_result_string
+        yield output_result
 
 
 def main():
     parsed_yaml = read_yaml()
     connection_params = form_connection_params_from_yaml(parsed_yaml)
-    for device_result in collect_outputs(connection_params, COMMANDS_LIST):
-        print(device_result)
+    for device_output in collect_outputs(connection_params, COMMANDS_LIST):
+        print(device_output)
 
 
 if __name__ == "__main__":
