@@ -6,6 +6,6 @@
 
 4) For dynamicssh.py, command file will be got as a input from the user. 
 
-
+5) myhelper.py takes care parsing the inventory.yml file. Make sure this script is in the same location as any of the script in ths repo. 
 
 
